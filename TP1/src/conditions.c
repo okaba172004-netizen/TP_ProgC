@@ -1,13 +1,32 @@
-Conditions et boucles avec divisibilité
+#include <stdio.h>
 
-Écrivez un programme en C nommé conditions.c qui effectue les tâches suivantes :
+int main() {
+    int somme = 0;  // variable pour stocker la somme
 
-Utilisez une boucle for pour parcourir les nombres de 1 à 1000.
+    printf("=== Somme des nombres divisibles par 5 ou 7 (sans ceux divisibles par 11) ===\n\n");
 
-Pour chaque nombre, vérifiez les conditions suivantes :
+    // Boucle de 1 à 1000
+    for (int i = 1; i <= 1000; i++) {
 
-Si le nombre est divisible par 5 ou par 7, ajoutez-le à une variable somme.
-Si le nombre est divisible par 11, ne l'ajoutez pas à somme et passez directement au nombre suivant (utilisez continue).
-Si la somme dépasse 5000 à tout moment, arrêtez immédiatement la boucle (utilisez break).
+        // Si le nombre est divisible par 11, on ignore cette itération
+        if (i % 11 == 0) {
+            continue; // passe directement au nombre suivant
+        }
 
-Affichez la somme finale après avoir terminé la boucle ou après avoir interrompu le calcul si la somme a dépassé 5000.
+        // Si le nombre est divisible par 5 ou 7, on l'ajoute à la somme
+        if (i % 5 == 0 || i % 7 == 0) {
+            somme += i;
+        }
+
+        // Si la somme dépasse 5000, on arrête la boucle
+        if (somme > 5000) {
+            printf("Somme > 5000, arrêt de la boucle à i = %d\n", i);
+            break; // stoppe complètement la boucle
+        }
+    }
+
+    // Affichage du résultat final
+    printf("Somme finale = %d\n", somme);
+
+    return 0;
+}
