@@ -14,10 +14,11 @@ int main() {
     if (bit4 == 1 && bit20 == 1) {
         resultat = 1;
     } else {
-        rezultat = 0;
+        resultat = 0;
     }
 
     printf("%d\n", resultat);
 
     return 0;
 }
+
